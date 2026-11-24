@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LPU Club Volunteer Portal</title>
+  <link rel="stylesheet" href="STYLE.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">LOVELY PROFESSIONAL UNIVERSITY</p>
+      <h1>Club Volunteer Portal</h1>
+      <p class="subtitle">Manage club registrations, roles, and volunteer allocation</p>
+    </div>
+    <span class="tag">Student Project · G1</span>
+  </header>
+
+  <main class="container">
+    <section class="stats-grid" aria-label="Portal summary">
+      <article class="stat-card"><span>Total Volunteers</span><strong id="totalCount">0</strong></article>
+      <article class="stat-card"><span>Pending Review</span><strong id="pendingCount">0</strong></article>
+      <article class="stat-card"><span>Selected</span><strong id="selectedCount">0</strong></article>
+      <article class="stat-card"><span>Available Clubs</span><strong id="clubCount">0</strong></article>
+    </section>
+
+    <div class="content-grid">
+      <!-- Registration Form -->
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">NEW APPLICATION</p>
+            <h2>Volunteer Registration</h2>
+          </div>
+        </div>
+
+        <form id="volunteerForm">
+          <label for="studentName">Student name</label>
+          <input id="studentName" name="studentName" type="text" placeholder="e.g., Aarav Sharma" required minlength="2">
+
+          <div class="form-row">
+            <div>
+              <label for="regNumber">Registration number</label>
+              <input id="regNumber" name="regNumber" type="text" placeholder="e.g., 12405678" required minlength="5">
+            </div>
+            <div>
+              <label for="courseSem">Course &amp; Semester</label>
+              <input id="courseSem" name="courseSem" type="text" placeholder="e.g., B.Tech CSE · Sem 1" required minlength="3">
+            </div>
+          </div>
+
+          <label for="contactInfo">Contact info (WhatsApp / LPU Email)</label>
+          <input id="contactInfo" name="contactInfo" type="text" placeholder="e.g., +91 9876543210 or aarav@lpu.in" required minlength="5">
+
+          <div class="form-row">
+            <div>
+              <label for="club">Choose a club</label>
+              <select id="club" name="club" required>
+                <option value="">Select a club</option>
+                <option>Coding Club</option>
+                <option>Dance Club</option>
+                <option>Music Club</option>
+                <option>Sports Club</option>
+                <option>Photography Club</option>
+                <option>Drama Club</option>
+              </select>
+            </div>
+            <div>
+              <label for="role">Preferred role</label>
+              <select id="role" name="role" required>
+                <option value="">Select a role</option>
+                <option>Event Management</option>
+                <option>Technical</option>
+                <option>Design / Media</option>
+                <option>Anchoring</option>
+                <option>Logistics</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="reason">Why do you want to volunteer?</label>
+          <textarea id="reason" name="reason" rows="3" placeholder="Mention relevant skills or past event experience..." required minlength="5"></textarea>
+
+          <button class="primary-btn" type="submit">Submit Application</button>
+          <p id="formMessage" class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <!-- Records Table -->
+      <section class="panel list-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">APPLICATION RECORDS</p>
+            <h2>Volunteer List</h2>
+          </div>
+          <button id="clearDemoBtn" class="text-btn" type="button">Reset demo data</button>
+        </div>
+
+        <div class="filters">
+          <input id="searchInput" type="search" placeholder="Search name, reg no, course, or contact...">
+          <select id="clubFilter" aria-label="Filter by club">
+            <option value="">All clubs</option>
+            <option>Coding Club</option>
+            <option>Dance Club</option>
+            <option>Music Club</option>
+            <option>Sports Club</option>
+            <option>Photography Club</option>
+            <option>Drama Club</option>
+          </select>
+          <select id="roleFilter" aria-label="Filter by role">
+            <option value="">All roles</option>
+            <option>Event Management</option>
+            <option>Technical</option>
+            <option>Design / Media</option>
+            <option>Anchoring</option>
+            <option>Logistics</option>
+          </select>
+          <select id="statusFilter" aria-label="Filter by status">
+            <option value="">All statuses</option>
+            <option>Pending</option>
+            <option>Selected</option>
+            <option>Rejected</option>
+          </select>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Student &amp; Contact</th>
+                <th>Club &amp; Role</th>
+                <th>Reason to Volunteer</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="volunteerTable">
+              <tr>
+                <td colspan="5" class="empty-state">No applications yet. Add the first volunteer using the form.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small-note">Demo note: records are saved in this browser using Local Storage. This is a front-end project, not a live LPU system.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>Academic project prototype · Club Volunteer Allocation Portal</footer>
+  <script src="script.js"></script>
+</body>
+</html>
